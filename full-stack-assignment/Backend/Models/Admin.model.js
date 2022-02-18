@@ -1,9 +1,8 @@
 const { Schema, model } = require("mongoose");
 const adminSchma = new Schema(
   {
-    name: { type: "string", required: true },
-    email: { type: "string", required: true, unique: true },
-    password: { type: "string", required: true },
+    email: { type: "string", unique: true },
+    password: { type: "string" },
   },
   { timestamp: true, versionKey: false }
 );

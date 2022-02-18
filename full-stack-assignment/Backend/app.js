@@ -4,12 +4,9 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-
-
-
-
-
-
-
+const AdminController = require("./Controllers/Admin.controller");
+app.use("/admin", AdminController);
+const TeacherController = require("./Controllers/teache.controller");
+app.use("/teacher", TeacherController);
 
 module.exports = app;
