@@ -1,6 +1,6 @@
 import { Button } from "antd";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./home.css";
 function More() {
   const { _id } = useParams();
@@ -37,7 +37,7 @@ function More() {
         </div>
       </div>
       <Button style={{ marginTop: "10px" }} type="primary">
-        Return to Home
+        <Link to="/home">Return to Home</Link>
       </Button>
     </div>
   );

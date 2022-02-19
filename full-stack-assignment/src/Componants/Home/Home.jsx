@@ -44,9 +44,13 @@ function Home() {
         {list.map((e) => (
           <tr className="tablerows" key={e._id}>
             <td>
-              <Link to={`/home/${e._id}`}>
+              {token ? (
+                <Link to={`/home/${e._id}`}>
+                  <img className="img" src={e.picture} alt={e.firstName} />
+                </Link>
+              ) : (
                 <img className="img" src={e.picture} alt={e.firstName} />
-              </Link>
+              )}
             </td>
             <td className="oddcol">
               {e.title}. {e.firstName}
@@ -54,7 +58,13 @@ function Home() {
             <td>{e.gender}</td>
             <td className="oddcol">{e.age}</td>
             <td>
-              <Button type="primary">Edit</Button>
+              {token ? (
+                <Link to={`/home/${e._id}`}>
+                  <Button type="primary">Edit</Button>
+                </Link>
+              ) : (
+                <Button type="primary">Edit</Button>
+              )}
             </td>
           </tr>
         ))}

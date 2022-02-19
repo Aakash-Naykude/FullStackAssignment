@@ -7,14 +7,12 @@ function Navbar() {
   const { token, handleLogin } = useContext(AuthContext);
   const Div = styled.nav`
     position: fixed;
-    display: flex;
     padding: 5px 10px;
     width: 100%;
     height: 60px;
     top: 0;
     margin-left: 5%;
     right: 0;
-    justify-content: space-around;
     align-items: center;
     background-color: #ffffff;
     box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
@@ -24,24 +22,33 @@ function Navbar() {
 
   return (
     <Div>
-      <Link to="/home">
-        <img
-          src="https://user-images.githubusercontent.com/87421852/154792165-fbba1305-27fd-4bc9-a4da-f50cfa9cc44e.png"
-          alt="logo"
-          style={{ width: "100px" }}
-        />
-      </Link>
-      <Link to="/home">
-        <h1>Home</h1>
-      </Link>
-      {token ? (
-        <h1 onClick={() => handleLogin(null)}>Log Out</h1>
-      ) : (
-        <Link to="/">
-          <h1>Log In</h1>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-around",
+          width: "80%",
+          marginLeft: "10%",
+        }}
+      >
+        <Link to="/home">
+          <img
+            src="https://user-images.githubusercontent.com/87421852/154792165-fbba1305-27fd-4bc9-a4da-f50cfa9cc44e.png"
+            alt="logo"
+            style={{ width: "80px", marginTop: "-18px" }}
+          />
         </Link>
-      )}
-      <h1>demo</h1>
+        <Link to="/home">
+          <h1>Home</h1>
+        </Link>
+        {token ? (
+          <h1 onClick={() => handleLogin(null)}>Log Out</h1>
+        ) : (
+          <Link to="/">
+            <h1>Log In</h1>
+          </Link>
+        )}
+        <h1>FAQ</h1>
+      </div>
     </Div>
   );
 }
