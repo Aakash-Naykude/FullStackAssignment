@@ -9,7 +9,7 @@ function Navbar() {
     position: fixed;
     padding: 5px 10px;
     width: 100%;
-    height: 60px;
+    height: 65px;
     top: 0;
     margin-left: 5%;
     right: 0;
@@ -18,6 +18,17 @@ function Navbar() {
     box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
       0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
       0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 80px 60px rgba(0, 0, 0, 0.1);
+  `;
+  const Button = styled.button`
+    /* Adapt the colors based on primary prop */
+    background: ${(props) => (props.primary ? "palevioletred" : "white")};
+    color: ${(props) => (props.primary ? "white" : "palevioletred")};
+
+    font-size: 1em;
+    margin: 1em;
+    padding: 0.25em 1em;
+    border: 2px solid palevioletred;
+    border-radius: 3px;
   `;
 
   return (
@@ -34,20 +45,22 @@ function Navbar() {
           <img
             src="https://user-images.githubusercontent.com/87421852/154792165-fbba1305-27fd-4bc9-a4da-f50cfa9cc44e.png"
             alt="logo"
-            style={{ width: "80px", marginTop: "-18px" }}
+            style={{ width: "80px", marginTop: "-15px" }}
           />
         </Link>
         <Link to="/home">
-          <h1>Home</h1>
+          <Button style={{ height: "35px" }}>Home</Button>
         </Link>
         {token ? (
-          <h1 onClick={() => handleLogin(null)}>Log Out</h1>
+          <Button onClick={() => handleLogin(null)} style={{ height: "35px" }}>
+            Log Out
+          </Button>
         ) : (
           <Link to="/">
-            <h1>Log In</h1>
+            <Button style={{ height: "35px" }}>Log In</Button>
           </Link>
         )}
-        <h1>FAQ</h1>
+        <Button style={{ height: "35px" }}>FAQ</Button>
       </div>
     </Div>
   );
