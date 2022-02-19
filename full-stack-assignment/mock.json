@@ -1,0 +1,67 @@
+[
+  {
+    "Grade": "A+",
+    "Section ": "A",
+    "Subject": ["hindi", "c++", "javascript"]
+  },
+  {
+    "Grade": "A+",
+    "Section ": "b",
+    "Subject": ["englisgh", "c", "javascript"]
+  },
+  {
+    "Grade": "A+",
+    "Section ": "c",
+    "Subject": ["hindi", "react", "javascript"]
+  },
+  {
+    "Grade": "A",
+    "Section ": "f",
+    "Subject": ["redux", "c++", "javascript"]
+  },
+  {
+    "Grade": "A+",
+    "Section ": "c",
+    "Subject": ["main", "c++", "javascript"]
+  },
+  {
+    "Grade": "m+",
+    "Section ": "m",
+    "Subject": ["java", "c++", "javascript"]
+  },
+  {
+    "Grade": "d+",
+    "Section ": "d",
+    "Subject": ["vue", "c++", "javascript"]
+  },
+  {
+    "Grade": "e+",
+    "Section ": "e",
+    "Subject": ["DOM", "c++", "javascript"]
+  },
+  {
+    "Grade": "f+",
+    "Section ": "f",
+    "Subject": ["kannda", "c++", "javascript"]
+  },
+  {
+    "Grade": "g+",
+    "Section ": "g",
+    "Subject": ["html", "c++", "javascript"]
+  },
+  {
+    "Grade": "a+",
+    "Section ": "b",
+    "Subject": ["css", "c++", "javascript"]
+  },
+  {
+    "Grade": "A+",
+    "Section ": "A",
+    "Subject": ["hindi", "c++", "javascript"]
+  },
+  {
+    "Grade": "A+",
+    "Section ": "A",
+    "Subject": ["hindi", "c++", "javascript"]
+  }
+]

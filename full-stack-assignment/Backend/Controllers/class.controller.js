@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const Teacher = require("../Models/teacher.model");
+const Classes = require("../Models/Class.model");
 
 router.post("/", async (req, res) => {
   try {
-    let Create = await Teacher.create(req.body);
+    let Create = await Classes.create(req.body);
     return res.status(200).send(Create);
   } catch (err) {
     return res.status(500).send(err);
@@ -12,19 +12,15 @@ router.post("/", async (req, res) => {
 });
 router.get("/", async (req, res) => {
   try {
-    const page = +req.query.page || 1;
-    const size = +req.query.size || 5;
-    const skippage = (page - 1) * size;
-    let Create = await Teacher.find().skip(skippage).limit(size);
+    let Create = await Classes.find().lean().exec();
     return res.status(200).send(Create);
   } catch (err) {
     return res.status(500).send(err);
   }
 });
-
 router.get("/:id", async (req, res) => {
   try {
-    let Create = await Teacher.findById(req.body.id).lean().exec();
+    let Create = await Classes.findById(req.params.id).lean().exec();
     return res.status(200).send(Create);
   } catch (err) {
     return res.status(500).send(err);

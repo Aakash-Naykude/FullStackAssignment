@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import "./login.css";
 import { Form, Input, Button, Checkbox } from "antd";
+import { useNavigate } from "react-router-dom";
 function Login() {
+  const navigate = useNavigate()
   const [form, setForm] = useState(null);
   const handleChange = (e) => {
     let { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
   const handleSubmit = (e) => {
+
     e.preventDefault();
     console.log(form);
     fetch("http://localhost:4000/admin", {
@@ -22,6 +25,7 @@ function Login() {
       })
       .then((res) => {
         console.log(res);
+        navigate("/home")
       })
       .catch((err) => {
         console.log(err);

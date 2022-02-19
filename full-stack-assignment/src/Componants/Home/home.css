@@ -1,0 +1,33 @@
+.table {
+  width: 80%;
+  margin: auto;
+}
+.tablehead {
+  border: 2px solid black;
+  background-color: #fcffa6;
+}
+.tablehead > th {
+  font-size: 18px;
+  border: 2px solid black;
+}
+.tablerows {
+  border: 1px solid black;
+  background-color: #fee3ec;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.tablerows > td {
+  width: 1%;
+  font-size: 20px;
+  border: 1px solid black;
+}
+img {
+  width: 180px;
+  height: 100px;
+}
+.buttonof {
+  display: flex;
+  margin-left: 45%;
+  gap: 5%;
+  margin-top: 30px;
+}

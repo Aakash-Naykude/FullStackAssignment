@@ -5,7 +5,7 @@ const userSchema = new Schema(
     name: { type: String },
     gender: { type: String },
     age: { type: String },
-    classes: [{ type: Number },]
+    classes: [{ type: Number }],
   },
   {
     versionKey: false,
