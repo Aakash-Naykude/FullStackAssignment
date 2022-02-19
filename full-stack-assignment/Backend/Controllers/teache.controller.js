@@ -24,7 +24,7 @@ router.get("/", async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
-    let Create = await Teacher.findById(req.body.id).lean().exec();
+    let Create = await Teacher.findById(req.params.id);
     return res.status(200).send(Create);
   } catch (err) {
     return res.status(500).send(err);

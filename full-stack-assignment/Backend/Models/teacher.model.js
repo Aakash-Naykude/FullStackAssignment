@@ -1,11 +1,17 @@
 const { Schema, model } = require("mongoose");
-
+const mongoose = require("mongoose");
 const userSchema = new Schema(
   {
     name: { type: String },
     gender: { type: String },
     age: { type: String },
-    classes: [{ type: Number }],
+    classes: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "classes",
+        required: true,
+      },
+    ],
   },
   {
     versionKey: false,

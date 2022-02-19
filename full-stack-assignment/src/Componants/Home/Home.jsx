@@ -1,11 +1,12 @@
 import { Button } from "antd";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../ContextApi/AuthContext";
 import "./home.css";
-import More from "./More";
 function Home() {
   const [list, setList] = useState([]);
   const [page, setPage] = useState(1);
+  const { token, handleLogin } = useContext(AuthContext);
   useEffect(() => {
     getData();
   }, [page]);
@@ -21,10 +22,10 @@ function Home() {
       });
   };
   return (
-    <div>
-      <h1>Main Page</h1>
+    <div style={{ marginTop: "5%" }}>
       <table className="table">
         <tr className="tablehead">
+          <th>Profile Pic</th>
           <th>Name</th>
           <th>Gender</th>
           <th>
@@ -38,19 +39,20 @@ function Home() {
               name="caret-up-outline"
             ></ion-icon>
           </th>
-          <th>Profile Pic</th>
           <th>Edit</th>
         </tr>
         {list.map((e) => (
           <tr className="tablerows" key={e._id}>
-            <td>{e.firstName}</td>
-            <td>{e.gender}</td>
-            <td>{e.age}</td>
             <td>
-              <Link to={"/more"}>
-                <img src={e.picture} alt={e.firstName} />
+              <Link to={`/home/${e._id}`}>
+                <img className="img" src={e.picture} alt={e.firstName} />
               </Link>
             </td>
+            <td className="oddcol">
+              {e.title}. {e.firstName}
+            </td>
+            <td>{e.gender}</td>
+            <td className="oddcol">{e.age}</td>
             <td>
               <Button type="primary">Edit</Button>
             </td>
@@ -66,6 +68,7 @@ function Home() {
         >
           Prev
         </Button>
+        <h2>{page}</h2>
         <Button type="primary" shape="round" onClick={() => setPage(page + 1)}>
           Next
         </Button>

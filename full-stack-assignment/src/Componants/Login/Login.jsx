@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./login.css";
 import { Form, Input, Button, Checkbox } from "antd";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../ContextApi/AuthContext";
 function Login() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const { token, handleLogin } = useContext(AuthContext);
   const [form, setForm] = useState(null);
   const handleChange = (e) => {
     let { name, value } = e.target;
     setForm({ ...form, [name]: value });
   };
   const handleSubmit = (e) => {
-
     e.preventDefault();
     console.log(form);
     fetch("http://localhost:4000/admin", {
@@ -25,7 +26,8 @@ function Login() {
       })
       .then((res) => {
         console.log(res);
-        navigate("/home")
+        handleLogin(res.email);
+        navigate("/home");
       })
       .catch((err) => {
         console.log(err);
@@ -52,6 +54,15 @@ function Login() {
           onChange={handleChange}
         />
         <br />
+        <div style={{ marginTop: "15px" }}></div>
+        <label>
+          User Type :
+          <select onChange={handleChange} name="Type">
+            <option value="Admin">Select</option>
+            <option value="Admin">Admin</option>
+            <option value="Guest">Guest</option>
+          </select>
+        </label>
         <Form.Item name="remember" valuePropName="checked">
           <Checkbox>Remember me</Checkbox>
         </Form.Item>
