@@ -27,12 +27,12 @@ router.get("/", async (req, res) => {
         .sort({ age: 1 })
         .limit(size);
       return res.status(200).send(Create);
-    } else if (req.query._order == "male") {
+    } else if (req.query._sort == "male") {
       let Create = await Teacher.find({ gender: { $eq: "male" } })
         .skip(skippage)
         .limit(size);
       return res.status(200).send(Create);
-    } else if (req.query._order == "female") {
+    } else if (req.query._sort == "female") {
       let Create = await Teacher.find({ gender: { $eq: "female" } })
         .skip(skippage)
         .sort({ age: 1 })

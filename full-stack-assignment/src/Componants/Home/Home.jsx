@@ -14,6 +14,7 @@ function Home() {
     fetch(`http://localhost:4000/teacher?page=${page}`)
       .then((d) => d.json())
       .then((res) => {
+        console.log(res);
         setList(res);
       })
       .catch((err) => {
@@ -35,14 +36,14 @@ function Home() {
       });
   };
   const handleGenderSortAcs = () => {
-    fetch(`http://localhost:4000/teacher?_sort=male&_order=asc&page=${page}`)
+    fetch(`http://localhost:4000/teacher?_sort=male&page=${page}`)
       .then((d) => d.json())
       .then((res) => {
         setList(res);
       });
   };
   const handleGenderSortDcs = () => {
-    fetch(`http://localhost:4000/teacher?_sort=female&_order=desc&page=${page}`)
+    fetch(`http://localhost:4000/teacher?_sort=female&page=${page}`)
       .then((d) => d.json())
       .then((res) => {
         setList(res);
